@@ -1,11 +1,12 @@
 import express from "express";
 import configViewEngine from "./configs/viewEngine";
+require("dotenv").config();
 const app = express(); // tạo app có thể sự dụng được  all tính năng của express, gọi hàm express()
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 configViewEngine(app);
 app.get("/", (req, res) => {
-  res.render('index.ejs')
+  res.render("index.ejs");
 });
 
 app.listen(port, () => {
